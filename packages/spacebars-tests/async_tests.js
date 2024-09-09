@@ -98,6 +98,11 @@ asyncSuite('if', [
   ['true', { x: Promise.resolve(true) }, '', '1 1'],
 ]);
 
+asyncSuite('with', [
+  ['without if', { asyncCall: Promise.resolve({x:1, y:false}) }, '', '1 2'],
+  ['with if', { asyncCall: Promise.resolve({x:1, y:true}) }, '', '1 1'],
+]);
+
 asyncSuite('unless', [
   ['false', { x: Promise.resolve(false) }, '', '1 1'],
   ['true', { x: Promise.resolve(true) }, '', '2'],
